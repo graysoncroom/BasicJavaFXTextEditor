@@ -16,7 +16,7 @@ public class TextEditer extends Application {
     public void start(Stage myStage) {
 
         // Give the stage a title.
-        myStage.setTitle("The Grayson Text Editer");
+        myStage.setTitle("The Sophomore Text Editer");
 
         // Use a FlowPane for the root node. In this case,
         // the horizontal gap is 10
@@ -58,6 +58,17 @@ public class TextEditer extends Application {
                                             0, showKey.getText().length() - 2));
                         } catch(StringIndexOutOfBoundsException e) {
                             e.printStackTrace();
+                        }
+                        break;
+                	case TAB:
+                        if(event.isControlDown()) {
+                            try {
+                                FileWriter fw = new FileWriter(new File("SophDoc.txt"));
+                                fw.write(showKey.getText());
+                                fw.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                         break;
                 }
