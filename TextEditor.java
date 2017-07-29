@@ -5,14 +5,17 @@ import javafx.scene.*;
 import javafx.stage.*;
 import javafx.scene.input.*;
 import javafx.application.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
 
 /* Note that this was an single hour of work and by no means is a
    good example of how to structure a text editor program */
-public class TextEditer extends Application {
+public class TextEditor extends Application {
     private Label showKey;
-    
+
     public static void main(String[] args) { launch(args); }
-    
+
     // Override the start() method.
     public void start(Stage myStage) {
         // Give the stage a title.
@@ -30,7 +33,7 @@ public class TextEditer extends Application {
         myStage.setScene(myScene);
         // Create Labels.
         showKey = new Label("");
-        
+
         // Handle a key-typed event on the scene.
         myScene.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
@@ -38,7 +41,7 @@ public class TextEditer extends Application {
                 showKey.setText(showKey.getText() + event.getCharacter());
             }
         });
-        
+
         // Handle a key-pressed event on the scene.
         myScene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
